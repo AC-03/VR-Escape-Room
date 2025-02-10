@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsmt7wda3oqys"]
+[gd_scene load_steps=10 format=3 uid="uid://bsmt7wda3oqys"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_57aul"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_jgukq"]
@@ -14,6 +14,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_84dkx"]
 size = Vector3(20.1968, 1, 20.5257)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jtt1s"]
 
 [node name="Main_Scene" type="Node3D"]
 script = ExtResource("1_57aul")
@@ -61,4 +63,28 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332764, 0, -4.28322)
+shape = SubResource("BoxShape3D_84dkx")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 3, 9.25318, 1.59219, 10.6569)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(25, 0, 0, 0, 10, 0, 0, 0, 10, 20.6166, -0.194762, -4.23664)
+mesh = SubResource("BoxMesh_jtt1s")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 0.5, 21.9823, 0, -4.28322)
+shape = SubResource("BoxShape3D_84dkx")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 3, -12.7511, 1.59219, 10.6569)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+transform = Transform3D(25, 0, 0, 0, 10, 0, 0, 0, 10, 20.6166, -0.194762, -4.23664)
+mesh = SubResource("BoxMesh_jtt1s")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 0.5, 21.9823, 0, -4.28322)
 shape = SubResource("BoxShape3D_84dkx")
